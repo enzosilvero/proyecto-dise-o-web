@@ -1,0 +1,116 @@
+body {
+  background-color: #292828;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+}
+header h1 {
+  color: #a32633;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header h1 span {
+  color: rgb(215.8656716418, 87.1343283582, 100.5223880597);
+  font-weight: 300;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  top: 0;
+  background-color: rgba(41, 40, 40, 0.9);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  background-color: rgba(41, 40, 40, 0.9);
+}
+.navbar .Enzo {
+  font-weight: bold;
+}
+.navbar .Enzo .tag {
+  font-size: 0.7rem;
+  color: #a32633;
+  margin-left: 5px;
+  border: 1px solid #a32633;
+  padding: 2px 6px;
+}
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li {
+  margin-left: 2rem;
+}
+.navbar ul a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+.navbar ul a:hover {
+  color: #a32633;
+}
+
+/* MAIN/SECTION */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  min-height: 80vh;
+}
+
+/* MAIN IMAGEN */
+.picture {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  overflow: hidden;
+}
+.picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* FOOTER/SECTION */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ESTILO PARA EL SPOTIFY */
+.spotify-container {
+  padding: 40px 0;
+  text-align: center;
+}
+.spotify-container .player-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+/*# sourceMappingURL=style.css.map */

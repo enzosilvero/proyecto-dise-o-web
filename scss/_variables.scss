@@ -1,0 +1,20 @@
+$bg-dark: #292828;       
+$color-primario: #a32633; 
+$texto-brillo: #ffffff;    
+$fuente-base: 'Inter', sans-serif;
+$transicion: all 0.3s ease;
+$max-width: 1100px;
+
+//primer mix para centrar.
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//mixin para separar las cositas.
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

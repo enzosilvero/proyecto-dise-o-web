@@ -1,0 +1,117 @@
+@import 'variables';
+
+body { 
+    background-color:$bg-dark;
+    color: $texto-brillo;
+    font-family: $fuente-base;
+}  
+
+header {
+    padding: 2rem;
+    text-align: center;
+    h1 {
+    color: $color-primario;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    span {
+        color: lighten($color-primario,20%);
+        font-weight: 300;
+    }
+}
+} 
+
+.navbar {
+   @include flex-between;
+   padding: 1rem 5%;
+   border-bottom: 1px solid rgb($texto-brillo, 0.1);
+   top: 0;
+   background-color: rgba($bg-dark, 0.9);
+}
+
+.navbar{
+    @include flex-between;
+    padding: 1rem 5%;
+    border-bottom: 1px solid rgba($texto-brillo, 0.1);
+    position: sticky;
+    top: 0;
+    background-color: rgba($bg-dark, 0.9);
+    
+    .Enzo {
+        font-weight: bold;
+        .tag{
+            font-size: 0.7rem;
+            color: $color-primario;
+            margin-left: 5px;
+            border: 1px solid $color-primario;
+            padding: 2px 6px;
+        }
+
+    }
+    ul{
+        @include flex-center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li{
+            margin-left: 2rem;
+    }
+           a{
+              text-decoration: none;
+              color: $texto-brillo;
+              font-size: 0.9rem;
+              transition: $transicion;
+
+              &:hover {
+                 color: $color-primario;
+             }
+         }
+    } 
+}
+
+/* MAIN/SECTION */
+main {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    min-height: 80vh;
+}
+
+/* MAIN IMAGEN */
+.picture{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    overflow: hidden;
+     img{
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+}
+}
+
+/* FOOTER/SECTION */
+footer{
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: rgb($texto-brillo, 0.5);
+    border-top: 1px solid rgb($texto-brillo,0.1);
+}
+
+
+
+/* ESTILO PARA EL SPOTIFY */
+.spotify-container {
+    padding: 40px 0;
+    text-align: center;
+
+.player-wrapper {
+        max-width: 800px; 
+        margin: 0 auto;   
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+        border-radius: 12px;
+    }
+}
