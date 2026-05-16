@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <header>
+    <header>
         <h1>Enzo Silvero <span>Contacto</span></h1>
     </header>
     <nav class="navbar">
@@ -19,7 +19,45 @@
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    <main>
+    <main class="contacto-container">
+        <section class="contacto-info">
+            <h2>Llevemos tu sonido al siguiente nivel</h2>
+            <div class="redes-box">
+                <h3>Conectemos</h3>
+                <ul>
+                    <li><a href="" target="_blank">📸Instagram</a></li>
+                    <li><a href="mailto:soyenzosilvero@gmail.com">✉️ soyenzosilvero@gmail.com</a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="contacto-form">
+            <form id="form-contacto">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="Ingrese su mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">¿Qué servicio buscás?</label>
+                    <select id="servicio" required>
+                        <option value="" disabled selected>Seleccioná una opción</option>
+                        <option value="mezcla">Mezcla Profesional</option>
+                        <option value="mastering">Mastering Analógico/Digital</option>
+                        <option value="full">Servicio Completo (Mezcla + Master)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="track-link">Link a la maqueta / multitracks (opcional)</label>
+                    <input type="url" id="track-link" placeholder="Drive, Dropbox, Soundcloud...">
+                </div>
+                <button type="submit" class="btn-submit">Enviar Sesión</button>
+            </form>
+        </section>
+
 
     </main>
     <footer>
