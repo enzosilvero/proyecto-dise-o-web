@@ -2,6 +2,28 @@ body {
   background-color: #292828;
   color: #ffffff;
   font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* INSERTAR LA IMAGEN DE FONDO */
+  background-image: url("../img/Fondo-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
 }
 
 header {
@@ -10,9 +32,10 @@ header {
 }
 header h1 {
   color: #a32633;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  animation: fadeHaciaArriba 1s ease-out forwards;
 }
 header h1 span {
   color: rgb(215.8656716418, 87.1343283582, 100.5223880597);
@@ -23,8 +46,9 @@ header h1 span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.2rem;
   padding: 1rem 5%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
   top: 0;
   background-color: rgba(41, 40, 40, 0.9);
 }
@@ -43,9 +67,9 @@ header h1 span {
   font-weight: bold;
 }
 .navbar .Enzo .tag {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #a32633;
-  margin-left: 5px;
+  margin-left: 6px;
   border: 1px solid #a32633;
   padding: 2px 6px;
 }
@@ -82,14 +106,25 @@ main {
 .picture {
   width: 100%;
   max-width: 1200px;
-  margin: 0;
+  margin: 3rem auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+  animation: revelarImagen 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 .picture img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
+  transition: transform 0.6s ease, filter 0.3s ease;
+  filter: grayscale(20%) brightness(0.8);
+}
+.picture img:hover {
+  transform: scale(1.04);
+  filter: grayscale(0%) brightness(1.1);
 }
 
 /* FOOTER/SECTION */
@@ -99,6 +134,13 @@ footer {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ESTILO PARA LAS CARDS (TRABAJARLO LUEGO.....) */
+.card {
+  background-color: rgba(41, 40, 40, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
 }
 
 /* ESTILO PARA EL SPOTIFY */
@@ -111,6 +153,91 @@ footer {
   margin: 0 auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
+}
+
+.contacto-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 2rem;
+}
+.contacto-container .contacto-info {
+  flex: 1;
+}
+.contacto-container .contacto-form {
+  flex: 1;
+}
+.contacto-container .contacto-form form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(41, 40, 40, 0.5);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.contacto-container .contacto-form .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.contacto-container .contacto-form .form-group label {
+  color: #a32633;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+.contacto-container .contacto-form .form-group input, .contacto-container .contacto-form .form-group select, .contacto-container .contacto-form .form-group textarea {
+  padding: 12px;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.contacto-container .contacto-form .form-group input:focus, .contacto-container .contacto-form .form-group select:focus, .contacto-container .contacto-form .form-group textarea:focus {
+  outline: none;
+  border-color: #a32633;
+}
+.contacto-container .contacto-form .btn-submit {
+  background-color: #a32633;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.contacto-container .contacto-form .btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* Animaciones de la pagina */
+@keyframes fadeHaciaArriba {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes revelarImagen {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/*  Responsivo para que no se rompa en mobile */
+@media (max-width: 768px) {
+  .contacto-container {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
