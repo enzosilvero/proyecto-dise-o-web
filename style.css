@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #292828;
   color: #ffffff;
@@ -48,30 +49,26 @@ header h1 span {
   align-items: center;
   font-size: 1.2rem;
   padding: 1rem 5%;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-  top: 0;
-  background-color: rgba(41, 40, 40, 0.9);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   background-color: rgba(41, 40, 40, 0.9);
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
 .navbar .Enzo {
   font-weight: bold;
+  display: inline-flex;
+  align-items: center;
 }
 .navbar .Enzo .tag {
   font-size: 0.8rem;
   color: #a32633;
-  margin-left: 6px;
+  margin-left: 8px;
   border: 1px solid #a32633;
   padding: 2px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .navbar ul {
   display: flex;
@@ -84,13 +81,13 @@ header h1 span {
 .navbar ul li {
   margin-left: 2rem;
 }
-.navbar ul a {
+.navbar ul li a {
   text-decoration: none;
   color: #ffffff;
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }
-.navbar ul a:hover {
+.navbar ul li a:hover {
   color: #a32633;
 }
 
@@ -136,11 +133,65 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ESTILO PARA LAS CARDS (TRABAJARLO LUEGO.....) */
+/* ESTILO PARA LAS CARDS */
+.seccion_work {
+  margin-bottom: 4rem;
+}
+.seccion_work .seccion_title {
+  text-align: center;
+  color: #a32633;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
 .card {
   background-color: rgba(41, 40, 40, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.portada-cover {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-bottom: 2px solid #a32633;
+  transition: transform 0.5s ease;
+}
+
+/* Un pequeño zoom para las tarjetas*/
+&:hover .portada-cover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+.card-content h3 {
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.card-content .labor {
+  color: rgb(211.0447761194, 66.4552238806, 81.4925373134);
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* ESTILO PARA EL SPOTIFY */
@@ -157,23 +208,31 @@ footer {
 
 .contacto-container {
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
   margin-top: 2rem;
 }
 .contacto-container .contacto-info {
-  flex: 1;
+  text-align: center;
+}
+.contacto-container .contacto-info h2 {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #ffffff;
 }
 .contacto-container .contacto-form {
-  flex: 1;
+  width: 100%;
+  max-width: 600px;
 }
 .contacto-container .contacto-form form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(41, 40, 40, 0.5);
-  padding: 30px;
-  border-radius: 8px;
+  background-color: rgba(41, 40, 40, 0.8);
+  padding: 40px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(163, 38, 51, 0.1);
 }
 .contacto-container .contacto-form .form-group {
   margin-bottom: 20px;
@@ -184,31 +243,70 @@ footer {
   color: #a32633;
   margin-bottom: 8px;
   font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .contacto-container .contacto-form .form-group input, .contacto-container .contacto-form .form-group select, .contacto-container .contacto-form .form-group textarea {
   padding: 12px;
   background-color: #1a1a1a;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-radius: 4px;
+  color: #ffffff;
+  border-radius: 6px;
   font-family: inherit;
+  font-family: all 0.3s ease;
 }
 .contacto-container .contacto-form .form-group input:focus, .contacto-container .contacto-form .form-group select:focus, .contacto-container .contacto-form .form-group textarea:focus {
   outline: none;
   border-color: #a32633;
+  box-shadow: 0 0 8px rgba(163, 38, 51, 0.3);
 }
 .contacto-container .contacto-form .btn-submit {
   background-color: #a32633;
   color: white;
-  padding: 12px;
+  padding: 14px;
+  margin-top: 10px;
   border: none;
   border-radius: 4px;
   font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
+  text-transform: uppercase;
   transition: opacity 0.2s ease;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 .contacto-container .contacto-form .btn-submit:hover {
-  opacity: 0.9;
+  background-color: rgb(204.3582089552, 47.6417910448, 63.9402985075);
+  transform: translateY(-2px);
+}
+
+/* Estilos para las redes */
+.redes-box {
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+.redes-box h3 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+.redes-box ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.redes-box ul li a {
+  text-decoration: none;
+  color: rgb(165.4814925373, 38.5785074627, 51.7764179104);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.redes-box ul li a:hover {
+  color: #ffffff;
 }
 
 /* Animaciones de la pagina */

@@ -45,55 +45,54 @@ header {
 } 
 
 .navbar {
-   @include flex-between;
-   font-size: 1.2rem;
-   padding: 1rem 5%;
-   border-bottom: 3px solid rgb($texto-brillo, 0.1);
-   top: 0;
-   background-color: rgba($bg-dark, 0.9);
-}
-
-.navbar{
-    @include flex-between;
+    @include flex-between; 
+    font-size: 1.2rem;
     padding: 1rem 5%;
     border-bottom: 1px solid rgba($texto-brillo, 0.1);
     position: sticky;
     top: 0;
     background-color: rgba($bg-dark, 0.9);
+    z-index: 100;
+    backdrop-filter: blur(10px);
     
     .Enzo {
         font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+
         .tag{
             font-size: 0.8rem;
             color: $color-primario;
-            margin-left: 6px;
+            margin-left: 8px;
             border: 1px solid $color-primario;
             padding: 2px 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
     }
-    ul{
+    
+    ul {
         @include flex-center;
         list-style: none;
         margin: 0;
         padding: 0;
 
-        li{
+        li {
             margin-left: 2rem;
-    }
-           a{
-              text-decoration: none;
-              color: $texto-brillo;
-              font-size: 0.9rem;
-              transition: $transicion;
+            
+            a {
+                text-decoration: none;
+                color: $texto-brillo;
+                font-size: 0.9rem;
+                transition: $transicion;
 
-              &:hover {
-                 color: $color-primario;
-             }
-         }
+                &:hover {
+                    color: $color-primario;
+                }
+            }
+        }
     } 
 }
-
 /* MAIN/SECTION */
 main {
     max-width: $max-width;
@@ -136,12 +135,68 @@ footer{
     border-top: 1px solid rgb($texto-brillo,0.1);
 }
 
-/* ESTILO PARA LAS CARDS (TRABAJARLO LUEGO.....) */
+/* ESTILO PARA LAS CARDS */
+.seccion_work {
+    margin-bottom: 4rem; // Le da aire antes de llegar al reproductor de Spotify
+
+    .seccion_title {
+        text-align: center;
+        color: $color-primario;
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+}
+
 .card {
     background-color: rgba($bg-dark, 0.75); 
     border: 1px solid rgba($texto-brillo, 0.1);
     backdrop-filter: blur(4px); 
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;;
 }
+
+.portada-cover {
+    width: 100%;
+        aspect-ratio: 1 / 1; 
+        object-fit: cover; 
+        border-bottom: 2px solid $color-primario; 
+        transition: transform 0.5s ease;
+}
+
+/* Un pequeño zoom para las tarjetas*/
+     &:hover .portada-cover {
+        transform: scale(1.05);
+    }
+
+.card-content {
+        padding: 1.5rem;
+        text-align: center;
+        h3 {
+            color: $texto-brillo;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .labor {
+            color: lighten($color-primario, 15%); 
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+}
+
 
 
 /* ESTILO PARA EL SPOTIFY */
@@ -163,25 +218,32 @@ footer{
 
 .contacto-container {
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
     margin-top: 2rem;
 
     .contacto-info {
-        flex: 1;
-        // Acá podés meterle facha a tu h2 de redes si querés
+        text-align: center;
+        h2{
+            font-size: 2.2rem;
+            margin: 0;
+            color: $texto-brillo;
+        }
     }
 
     .contacto-form {
-        flex: 1;
+        width: 100%;
+        max-width: 600px;
 
         form {
             display: flex;
             flex-direction: column;
-            background-color: rgba($bg-dark, 0.5); // Usa tu variable de fondo
-            padding: 30px;
-            border-radius: 8px;
+            background-color: rgba($bg-dark, 0.8); 
+            padding: 40px;
+            border-radius: 12px;
             border: 1px solid rgba($texto-brillo, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba($color-primario, 0.1);;
         }
 
         .form-group {
@@ -193,19 +255,23 @@ footer{
                 color: $color-primario; // Cambié bordo por tu variable principal del header para asegurar
                 margin-bottom: 8px;
                 font-size: 0.9rem;
+                font-weight: bold;
+                letter-spacing: 1px;
             }
             
             input, select, textarea {
                 padding: 12px;
-                background-color: #1a1a1a; // Un gris oscuro elegante
+                background-color: #1a1a1a;
                 border: 1px solid rgba($texto-brillo, 0.2);
-                color: #fff;
-                border-radius: 4px;
+                color: $texto-brillo;
+                border-radius: 6px;
                 font-family: inherit;
+                font-family: $transicion;
 
                 &:focus {
                     outline: none;
-                    border-color: $color-primario; // Brilla con tu color al hacer clic
+                    border-color: $color-primario; // Brilla con tu color al hacer click.
+                    box-shadow: 0 0 8px rgba($color-primario, 0.3);
                 }
             }
         }
@@ -213,20 +279,58 @@ footer{
         .btn-submit {
             background-color: $color-primario; 
             color: white;
-            padding: 12px;
+            padding: 14px;
+            margin-top: 10px;
             border: none;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 1.1rem;
             cursor: pointer;
+            text-transform: uppercase;
             transition: opacity 0.2s ease;
+            letter-spacing: 1px;
+            transition: $transicion;
 
             &:hover {
-                opacity: 0.9; // Se opaca un poquito al pasar el mouse
+                background-color: lighten($color-primario, 10%);
+                transform: translateY(-2px);
             }
         }
     }
 }
 
+/* Estilos para las redes */
+    .redes-box {
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid rgba($texto-brillo, 0.1);
+        padding-top: 20px;
+        
+        h3 {
+            color: $texto-brillo;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px; 
+
+            li a {
+                text-decoration: none;
+                color: lighten($color-primario, 0.6);
+                font-size: 1.1rem;
+                transition: $transicion;
+
+                &:hover {
+                    color: $texto-brillo;
+                }
+            }
+        }
+    }
 
 /* Animaciones de la pagina */
 @keyframes fadeHaciaArriba {
@@ -258,4 +362,3 @@ footer{
         gap: 30px;
     }
 }
-
